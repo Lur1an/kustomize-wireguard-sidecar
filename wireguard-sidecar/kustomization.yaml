@@ -4,22 +4,16 @@ kind: Component
 patches:
 - target:
     kind: Deployment
-    name: ".*"
   path: sidecar.yaml
 
 - target:
     kind: StatefulSet
-    name: ".*"
   path: sidecar.yaml
 
 - target:
     kind: Deployment
-    name: ".*"
   path: deployment-init.yaml
 
 - target:
     kind: StatefulSet
-    name: ".*"
   path: statefulset-init.yaml
-
-

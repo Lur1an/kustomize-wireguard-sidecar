@@ -1,4 +1,5 @@
 wireguard-secret.yaml
+.direnv
 result.yaml
 charts
 

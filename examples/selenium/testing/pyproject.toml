@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "testing"
+version = "0.1.0"
+description = "Testing selenium kubernetes"
+authors = ["lur1an <lurian-code@protonmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+selenium = "^4.23.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
