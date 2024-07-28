@@ -1,0 +1,30 @@
+tls:
+  enabled: false
+
+edgeNode:
+  enabled: false
+  deploymentEnabled: false
+
+basicAuth:
+  enabled: false
+
+ingress:
+  enabled: false
+
+firefoxNode:
+  enabled: false
+  deploymentEnabled: false
+
+chromeNode:
+  replicas: 2
+  nameOverride: node-chromium
+  imageName: node-chromium
+  extraEnvironmentVariables:
+  - name: SE_NODE_MAX_SESSIONS
+    value: "3"
+  - name: SE_NODE_OVERRIDE_MAX_SESSIONS
+    value: "true"
+  initContainers: []
+
+ingress:
+  enabled: false
