@@ -1,0 +1,23 @@
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+
+patches:
+- target:
+    kind: Deployment
+    labelSelector: wireguard-sidecar=enable
+  path: patches/sidecar.yaml
+
+- target:
+    kind: StatefulSet
+    labelSelector: wireguard-sidecar=enable
+  path: patches/sidecar.yaml
+
+- target:
+    kind: Deployment
+    labelSelector: wireguard-sidecar=enable
+  path: patches/deployment-init.yaml
+
+- target:
+    kind: StatefulSet
+    labelSelector: wireguard-sidecar=enable
+  path: patches/statefulset-init.yaml

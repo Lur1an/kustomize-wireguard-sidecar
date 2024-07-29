@@ -16,24 +16,14 @@ firefoxNode:
   deploymentEnabled: false
 
 chromeNode:
+  labels:
+    wireguard-sidecar: enable
   replicas: 1
   ports:
-  - 5900 # You can give port number alone, default protocol is TCP
+  - 5900
   - 7900
   nameOverride: node-chromium
   imageName: node-chromium
-  service:
-    type: NodePort # Expose entire ports on Service via NodePort
-    ports:
-      - name: vnc-port
-        protocol: TCP
-        port: 5900
-        targetPort: 5900
-        nodePort: 30590 # Specify a NodePort to expose VNC port
-      - name: novnc-port
-        protocol: TCP
-        port: 7900
-        targetPort: 7900
   extraEnvironmentVariables:
   - name: SE_VNC_PASSWORD
     value: deeznuts
