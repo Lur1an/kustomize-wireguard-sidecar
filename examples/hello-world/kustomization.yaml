@@ -8,4 +8,4 @@ resources:
 - wireguard-secret.yaml
 
 components:
-- ../../
+- https://github.com/lur1an/kustomize-wireguard-sidecar

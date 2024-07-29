@@ -26,7 +26,7 @@ chromeNode:
   imageName: node-chromium
   extraEnvironmentVariables:
   - name: SE_VNC_PASSWORD
-    value: deeznuts
+    value: deez
   - name: SE_NODE_MAX_SESSIONS
     value: "3"
   - name: SE_NODE_OVERRIDE_MAX_SESSIONS
