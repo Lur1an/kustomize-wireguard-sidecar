@@ -139,5 +139,5 @@ stringData:
     # DE#241
     PublicKey = <YOUR_PUBLIC_KEY>
     AllowedIPs = 0.0.0.0/0
-    Endpoint = 217.138.216.98:51820
+    Endpoint = <ENDPOINT>
 ```
