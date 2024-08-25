@@ -7,10 +7,11 @@ spec:
     spec:
       template:
         spec:
-          containers:
+          initContainers:
           - name: wireguard
             image: ghcr.io/linuxserver/wireguard:latest
             imagePullPolicy: Always
+            restartPolicy: Always
             securityContext:
               privileged: true
               capabilities:

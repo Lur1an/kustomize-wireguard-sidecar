@@ -9,4 +9,4 @@ resources:
 - wireguard-secret.yaml
 
 components:
-- https://github.com/Lur1an/kustomize-wireguard-sidecar?ref=cronjobs
+- https://github.com/Lur1an/kustomize-wireguard-sidecar?ref=cronjob-wireguard-termination
