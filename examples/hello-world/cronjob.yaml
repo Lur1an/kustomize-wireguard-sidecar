@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello-world
+  namespace: hello-world
+  labels:
+    wireguard-sidecar: enable
+spec:
+  schedule: "*/1 * * * *"
+  concurrencyPolicy: Replace
+  jobTemplate:
+    spec:
+      ttlSecondsAfterFinished: 30
+      template:
+        spec:
+          containers:
+          - name: hello-world
+            image: testcontainers/helloworld
+            imagePullPolicy: Always
+            volumeMounts:
+            - mountPath: /deeznuts
+              name: deeznuts
+          restartPolicy: Always

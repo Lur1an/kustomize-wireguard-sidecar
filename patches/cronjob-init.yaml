@@ -1,0 +1,32 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: doesNotMatter
+spec:
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          initContainers:
+          - name: copy-wireguard-config
+            image: busybox
+            command:
+            - sh
+            - -c
+            - |
+              echo copying /etc/wireguard-secret/wg0.conf to config volume
+              cat /etc/wireguard-secret/wg0.conf > /config/wg0.conf
+              sysctl -w net.ipv4.ip_forward=1
+              chmod 400 /config/wg0.conf
+            volumeMounts:
+            - name: wireguard-config
+              mountPath: /config
+            - name: wireguard-secret
+              mountPath: /etc/wireguard-secret
+              readOnly: true
+          volumes:
+          - name: wireguard-config
+            emptyDir: {}
+          - name: wireguard-secret
+            secret:
+              secretName: wireguard-secret

@@ -21,3 +21,13 @@ patches:
     kind: StatefulSet
     labelSelector: wireguard-sidecar=enable
   path: patches/statefulset-init.yaml
+
+- target:
+    kind: CronJob
+    labelSelector: wireguard-sidecar=enable
+  path: patches/cronjob-init.yaml
+
+- target:
+    kind: CronJob
+    labelSelector: wireguard-sidecar=enable
+  path: patches/cronjob-sidecar.yaml
