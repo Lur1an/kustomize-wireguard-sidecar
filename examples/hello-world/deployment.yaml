@@ -6,7 +6,7 @@ metadata:
   labels:
     wireguard-sidecar: enable
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: hello-world
