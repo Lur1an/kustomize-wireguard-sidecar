@@ -5,29 +5,29 @@ patches:
 - target:
     kind: Deployment
     labelSelector: wireguard-sidecar=enable
-  path: patches/sidecar.yaml
-
-- target:
-    kind: StatefulSet
-    labelSelector: wireguard-sidecar=enable
-  path: patches/sidecar.yaml
+  path: patches/deployment/sidecar.yaml
 
 - target:
     kind: Deployment
     labelSelector: wireguard-sidecar=enable
-  path: patches/deployment-init.yaml
+  path: patches/deployment/init.yaml
 
 - target:
     kind: StatefulSet
     labelSelector: wireguard-sidecar=enable
-  path: patches/statefulset-init.yaml
+  path: patches/statefulset/init.yaml
+
+- target:
+    kind: StatefulSet
+    labelSelector: wireguard-sidecar=enable
+  path: patches/statefulset/sidecar.yaml
 
 - target:
     kind: CronJob
     labelSelector: wireguard-sidecar=enable
-  path: patches/cronjob-init.yaml
+  path: patches/cronjob/init.yaml
 
 - target:
     kind: CronJob
     labelSelector: wireguard-sidecar=enable
-  path: patches/cronjob-sidecar.yaml
+  path: patches/cronjob/sidecar.yaml
