@@ -5,6 +5,12 @@ metadata:
 spec:
   template:
     spec:
+      volumes:
+      - name: wireguard-config
+        emptyDir: {}
+      - name: wireguard-secret
+        secret:
+          secretName: wireguard-secret
       initContainers:
       - name: copy-wireguard-config
         image: busybox
@@ -22,11 +28,5 @@ spec:
         - name: wireguard-secret
           mountPath: /etc/wireguard-secret
           readOnly: true
-      volumes:
-      - name: wireguard-config
-        emptyDir: {}
-      - name: wireguard-secret
-        secret:
-          secretName: wireguard-secret
 
 

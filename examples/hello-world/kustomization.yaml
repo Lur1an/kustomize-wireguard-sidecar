@@ -4,8 +4,9 @@ namespace: hello-world
 resources:
 - namespace.yaml
 - deployment.yaml
+- cronjob.yaml
 - service.yaml
 - wireguard-secret.yaml
 
 components:
-- https://github.com/lur1an/kustomize-wireguard-sidecar
+- ../..
