@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: hello-world
+  name: hello-world-cronjob
   namespace: hello-world
   labels:
     wireguard-sidecar: enable
@@ -14,7 +14,7 @@ spec:
       template:
         spec:
           containers:
-          - name: hello-world
-            image: testcontainers/helloworld
+          - name: hello-world-job-worker
+            image: docker.io/library/hello-world
             imagePullPolicy: Always
           restartPolicy: OnFailure
