@@ -7,6 +7,13 @@ spec:
     spec:
       template:
         spec:
+          volumes:
+          - name: wireguard-config
+            emptyDir: {}
+          - name: wireguard-secret
+            secret:
+              secretName: wireguard-secret
+
           initContainers:
           - name: copy-wireguard-config
             image: busybox
@@ -24,6 +31,7 @@ spec:
             - name: wireguard-secret
               mountPath: /etc/wireguard-secret
               readOnly: true
+
           - name: wireguard
             image: ghcr.io/linuxserver/wireguard:latest
             imagePullPolicy: Always
@@ -53,9 +61,3 @@ spec:
             volumeMounts:
             - name: wireguard-config
               mountPath: /config
-          volumes:
-          - name: wireguard-config
-            emptyDir: {}
-          - name: wireguard-secret
-            secret:
-              secretName: wireguard-secret

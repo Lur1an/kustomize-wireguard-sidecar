@@ -35,3 +35,32 @@ spec:
           mountPath: /etc/wireguard-secret
           readOnly: true
 
+      containers:
+      - name: wireguard
+        image: ghcr.io/linuxserver/wireguard:latest
+        imagePullPolicy: Always
+        securityContext:
+          privileged: true
+          capabilities:
+            add:
+              - NET_ADMIN
+              - SYS_MODULE
+          allowPrivilegeEscalation: true
+          readOnlyRootFilesystem: false
+        ports:
+        - containerPort: 51820
+          protocol: UDP
+        env:
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        - name: TZ
+          value: Etc/UTC
+        - name: ALLOWEDIPS
+          value: "0.0.0.0/0"
+        - name: LOG_CONFS
+          value: "true"
+        volumeMounts:
+        - name: wireguard-config
+          mountPath: /config
