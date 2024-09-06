@@ -36,7 +36,7 @@ spec:
           readOnly: true
       - name: wireguard
         image: ghcr.io/linuxserver/wireguard:latest
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         restartPolicy: Always
         securityContext:
           privileged: true
