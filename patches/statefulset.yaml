@@ -34,11 +34,10 @@ spec:
         - name: wireguard-secret
           mountPath: /etc/wireguard-secret
           readOnly: true
-
-      containers:
       - name: wireguard
         image: ghcr.io/linuxserver/wireguard:latest
         imagePullPolicy: Always
+        restartPolicy: Always
         securityContext:
           privileged: true
           capabilities:
