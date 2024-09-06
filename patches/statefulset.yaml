@@ -5,6 +5,7 @@ metadata:
 spec:
   template:
     spec:
+      shareProcessNamespace: false
       volumes:
       - name: wireguard-config
         emptyDir: {}
